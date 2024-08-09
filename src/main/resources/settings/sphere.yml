@@ -1,0 +1,12 @@
+sample:
+  from:
+    world: "world"
+    x: 1000.0
+    y: 70.0
+    z: 1000.0
+  radius: 30
+  to:
+    world: "world_nether"
+    x: 100.0
+    y: 260.0
+    z: 100.0
