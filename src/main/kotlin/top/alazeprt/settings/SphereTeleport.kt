@@ -3,7 +3,7 @@ package top.alazeprt.settings
 import org.bukkit.Location
 import org.bukkit.entity.Player
 
-class SphereTeleport(val name: String, val from: Location, val radius: Long, val to: Location) {
+class SphereTeleport(val name: String, private val from: Location, private val radius: Long, private val to: Location) {
 
     companion object {
         private fun isLocationInSphere(location: Location, center: Location, radius: Long) =

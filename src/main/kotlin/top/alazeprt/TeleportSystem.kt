@@ -12,14 +12,14 @@ import top.alazeprt.settings.SphereTeleport
 object TeleportSystem : Plugin() {
 
     @Config("settings/sphere.yml")
-    lateinit var sphereConfig: ConfigFile;
+    lateinit var sphereConfig: ConfigFile
 
     @Config("settings/height.yml")
-    lateinit var heightConfig: ConfigFile;
+    lateinit var heightConfig: ConfigFile
 
-    val heightConfList = mutableListOf<HeightTeleport>()
+    private val heightConfList = mutableListOf<HeightTeleport>()
 
-    val sphereConfList = mutableListOf<SphereTeleport>()
+    private val sphereConfList = mutableListOf<SphereTeleport>()
 
     override fun onEnable() {
         heightConfig.getKeys(false).forEach {
