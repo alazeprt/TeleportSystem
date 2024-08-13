@@ -1,4 +1,4 @@
-package top.alazeprt.settings
+package top.alazeprt.teleportsystem.settings
 
 import org.bukkit.Location
 import org.bukkit.World

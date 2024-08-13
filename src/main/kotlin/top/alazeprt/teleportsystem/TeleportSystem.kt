@@ -1,4 +1,4 @@
-package top.alazeprt
+package top.alazeprt.teleportsystem
 
 import org.bukkit.Bukkit
 import org.bukkit.Location
@@ -6,15 +6,15 @@ import taboolib.common.platform.Plugin
 import taboolib.common.platform.function.submit
 import taboolib.module.configuration.Config
 import taboolib.module.configuration.ConfigFile
-import top.alazeprt.settings.HeightTeleport
-import top.alazeprt.settings.SphereTeleport
+import top.alazeprt.teleportsystem.settings.HeightTeleport
+import top.alazeprt.teleportsystem.settings.SphereTeleport
 
 object TeleportSystem : Plugin() {
 
-    @Config("settings\\sphere.yml", migrate = true)
+    @Config("settings/sphere.yml", migrate = true)
     lateinit var sphereConfig: ConfigFile
 
-    @Config("settings\\height.yml", migrate = true)
+    @Config("settings/height.yml", migrate = true)
     lateinit var heightConfig: ConfigFile
 
     private val heightConfList = mutableListOf<HeightTeleport>()
