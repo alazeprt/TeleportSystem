@@ -11,17 +11,17 @@ import top.alazeprt.settings.SphereTeleport
 
 object TeleportSystem : Plugin() {
 
-    @Config("settings/sphere.yml")
+    @Config("settings\\sphere.yml", migrate = true)
     lateinit var sphereConfig: ConfigFile
 
-    @Config("settings/height.yml")
+    @Config("settings\\height.yml", migrate = true)
     lateinit var heightConfig: ConfigFile
 
     private val heightConfList = mutableListOf<HeightTeleport>()
 
     private val sphereConfList = mutableListOf<SphereTeleport>()
 
-    override fun onEnable() {
+    override fun onActive() {
         heightConfig.getKeys(false).forEach {
             val section = heightConfig.getConfigurationSection(it) ?: return@forEach
             val from = Bukkit.getWorld(section.getString("from") ?: return@forEach)
@@ -47,9 +47,6 @@ object TeleportSystem : Plugin() {
             val st = SphereTeleport(it, from, radius, to)
             sphereConfList.add(st)
         }
-    }
-
-    override fun onActive() {
         submit(period = 5) {
             Bukkit.getOnlinePlayers().forEach { player ->
                 heightConfList.forEach {
