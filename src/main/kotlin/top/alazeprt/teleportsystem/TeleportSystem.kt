@@ -40,14 +40,12 @@ object TeleportSystem : Plugin() {
                 section.getDouble("from.x"), section.getDouble("from.y"), section.getDouble("from.z")
             )
             val radius = section.getLong("radius")
-            val to = Location(
-                Bukkit.getWorld(section.getString("to.world") ?: return@forEach),
-                section.getDouble("to.x"), section.getDouble("to.y"), section.getDouble("to.z")
-            )
-            val st = SphereTeleport(it, from, radius, to)
+            val toWorld = Bukkit.getWorld(section.getString("to.world") ?: return@forEach)?: return@forEach
+            val toHeight = section.getDouble("to.y")
+            val st = SphereTeleport(it, from, radius, toWorld, toHeight)
             sphereConfList.add(st)
         }
-        submit(period = 5) {
+        submit(period = 1) {
             Bukkit.getOnlinePlayers().forEach { player ->
                 heightConfList.forEach {
                     it.handle(player)

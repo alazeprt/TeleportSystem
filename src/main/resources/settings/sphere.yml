@@ -7,6 +7,4 @@ sample:
   radius: 30
   to:
     world: "world_nether"
-    x: 100.0
     y: 260.0
-    z: 100.0
